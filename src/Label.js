@@ -159,16 +159,16 @@ L.Label = (L.Layer ? L.Layer : L.Class).extend({
 			offset = L.point(this.options.offset);
 
 		// position to the right (right or auto & needs to)
-		if (direction === 'right' || direction === 'auto' && labelPoint.x < centerPoint.x) {
+		if (direction === 'right' || direction === 'auto' && labelPoint.x > centerPoint.x) {
 			L.DomUtil.addClass(container, 'leaflet-label-right');
 			L.DomUtil.removeClass(container, 'leaflet-label-left');
 
-			pos = pos.add(offset);
+			pos = pos.add(L.point(-offset.x, offset.y));
 		} else { // position to the left
 			L.DomUtil.addClass(container, 'leaflet-label-left');
 			L.DomUtil.removeClass(container, 'leaflet-label-right');
 
-			pos = pos.add(L.point(-offset.x - labelWidth, offset.y));
+			pos = pos.add(L.point(offset.x + labelWidth, offset.y));
 		}
 
 		L.DomUtil.setPosition(container, pos);

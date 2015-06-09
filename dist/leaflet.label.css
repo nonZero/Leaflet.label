@@ -37,15 +37,15 @@
 }
 
 .leaflet-label:before {
-	border-right: 6px solid black;
-	border-right-color: inherit;
-	left: -10px;
-}
-
-.leaflet-label:after {
 	border-left: 6px solid black;
 	border-left-color: inherit;
 	right: -10px;
+}
+
+.leaflet-label:after {
+	border-right: 6px solid black;
+	border-right-color: inherit;
+	left: -10px;
 }
 
 .leaflet-label-right:before,
